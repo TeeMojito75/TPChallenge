@@ -12,6 +12,45 @@
   </div>
 
   <script>
+   // Función para mostrar los resultados en la página
+   function mostrarResultados(data) {
+        // Obtener el elemento div donde se mostrarán los resultados
+        const resultadosDiv = document.getElementById('resultados');
+      
+        // Limpiar el contenido previo en caso de que haya
+        resultadosDiv.innerHTML = '';
+      
+        // Recorrer los datos y agregarlos al elemento div
+        Object.keys(data).forEach(function(fecha) {
+        const eventos = data[fecha].eventos;
+        const personas = data[fecha].personas;
+        
+        // Crear elementos para mostrar la fecha y los eventos
+        const fechaHeading = document.createElement('h2');
+        fechaHeading.textContent = fecha;
+        resultadosDiv.appendChild(fechaHeading);
+        
+        // Mostrar eventos
+        if (eventos.length > 0) {
+            // Mostrar personas
+            const personasParrafo = document.createElement('p');
+            personasParrafo.textContent = 'Personas: ' + personas.join(', ');
+            resultadosDiv.appendChild(personasParrafo);
+            const eventosLista = document.createElement('ul');
+            eventos.forEach(function(evento) {
+            const itemEvento = document.createElement('li');
+            itemEvento.textContent = `${evento.nombre_evento} - ${evento.liga} en ${evento.lugar_evento}`;
+            eventosLista.appendChild(itemEvento);
+          });
+          resultadosDiv.appendChild(eventosLista);
+        } else {
+          const sinEventosParrafo = document.createElement('p');
+          sinEventosParrafo.textContent = 'No hay eventos para esta fecha.';
+          resultadosDiv.appendChild(sinEventosParrafo);
+        }
+      });
+    }
+    
     // Obtener el ID del usuario de la URL
     const urlParams = new URLSearchParams(window.location.search);
     const userId = urlParams.get('id');
@@ -30,6 +69,7 @@
       .then(data => {
         // Hacer algo con los datos de compatibilidad recibidos
         console.log("Datos de compatibilidad:", data);
+        mostrarResultados(data);
       })
       .catch(error => {
         console.error("Error al obtener los datos de compatibilidad:", error);
