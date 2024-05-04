@@ -63,7 +63,7 @@
         } else if (eventos.length === 0 && personas.length > 0) {
             // Mostrar personas si no hay eventos
             const personasParrafo = document.createElement('p');
-            personasParrafo.textContent = 'Personas en tu ciudad: ' + personas.join(', ');
+            personasParrafo.textContent = 'No hay ningun evento disponible. Personas en tu ciudad: ' + personas.join(', ');
             resultadosDiv.appendChild(personasParrafo);
         } else {
             // Mostrar mensaje si no hay eventos ni personas
