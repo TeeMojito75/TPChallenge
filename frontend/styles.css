@@ -29,20 +29,21 @@ h1 {
     border-radius: 8px;
 }
 
+/* Estilos para los campos de entrada del formulario */
+.form-group input[type="text"],
+.form-group input[type="date"] {
+    width: calc(100% - 170px); /* Ancho fijo para los campos de entrada */
+    /* La resta de 170px es el ancho fijo de las etiquetas más el margen */
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
 /* Estilos para las etiquetas de los campos del formulario */
 .form-group label {
     display: inline-block;
     width: 150px; /* Ancho fijo para las etiquetas */
     text-align: right;
     margin-right: 10px; /* Espacio entre la etiqueta y el campo de entrada */
-}
-
-/* Estilos para los campos de entrada del formulario */
-.form-group input[type="text"],
-.form-group input[type="date"] {
-    width: calc(100% - 160px); /* Ancho fijo para los campos de entrada */
-    padding: 5px;
-    margin-bottom: 10px;
 }
 
 /* Estilos para el botón de enviar */
@@ -64,7 +65,7 @@ h1 {
 /* Estilos para el contenedor del logo */
 #logo-container {
     text-align: center;
-    margin-bottom: -100px;
+    margin-bottom: -80px;
 }
 
 /* Estilos para la imagen del logo */
@@ -81,13 +82,13 @@ h1 {
 
 /* Estilos para las celdas de la tabla */
 #form-container td {
-    padding: 10px; /* Ajusta el espacio interno de las celdas */
+    padding: 13px; /* Ajusta el espacio interno de las celdas */
 }
 
 /* Estilos para las etiquetas de los campos del formulario */
 #form-container label {
     display: inline-block;
-    width: 120px; /* Ancho fijo para las etiquetas */
+    width: 110px; /* Ancho fijo para las etiquetas */
     font-weight: bold; /* Negrita para los títulos */
     white-space: nowrap; /* Evita que el texto se rompa en múltiples líneas */
     margin-right: 10px; /* Añade un espacio entre las etiquetas y los campos de entrada */
