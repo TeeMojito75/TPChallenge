@@ -4,48 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="Styles/styles.css">
 </head>
 <body>
-    <h1>Resultados</h1>
+  <div id="resultados">
+    <!-- Aquí se mostrarán los resultados -->
+  </div>
 
-    <div id="results-container">
-        <p>Name: <span id="name"></span></p>
-        <p>Departure City: <span id="departureCity"></span></p>
-        <p>departure Date: <span id="departureDate"></span></p>
-        <p>Arrival City: <span id="arrivalCity"></span></p>
-        <p>Arrival Date: <span id="arrivalDate"></span></p>
-        <p>Selected Sport: <span id="selectSport"></span></p>
-    </div>
+  <script>
+    // Obtener el ID del usuario de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get('id');
 
-    <script>
-        // Función para obtener los parámetros de la URL
-        function getUrlParams() {
-            const params = new URLSearchParams(window.location.search);
-            const data = {
-                name: params.get('name'),
-                departureCity: params.get('departureCity'),
-                departureDate: params.get('departureDate'),
-                arrivalCity: params.get('arrivalCity'),
-                arrivalDate: params.get('arrivalDate'),
-                selectSport: params.get('selectSport')
-            };
-            return data;
+    // Construir la URL de la API de compatibilidad con el ID del usuario
+    const apiUrl = "https://hackupc.weonpollo.xyz/compatibility/?id=" + userId;
+
+    // Realizar la llamada a la API de compatibilidad
+    fetch(apiUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('La solicitud a la API falló: ' + response.statusText);
         }
-
-        // Función para mostrar los datos en la página
-        function displayData() {
-            const data = getUrlParams();
-            document.getElementById('name').textContent = data.name;
-            document.getElementById('departureCity').textContent = data.departureCity;
-            document.getElementById('departureDate').textContent = data.departureDate;
-            document.getElementById('arrivalCity').textContent = data.arrivalCity;
-            document.getElementById('arrivalDate').textContent = data.arrivalDate;            
-            document.getElementById('selectSport').textContent = data.selectSport;            
-        }
-
-        // Llamamos a la función displayData cuando la página esté lista
-        document.addEventListener('DOMContentLoaded', displayData);
-    </script>
+        return response.json();
+      })
+      .then(data => {
+        // Hacer algo con los datos de compatibilidad recibidos
+        console.log("Datos de compatibilidad:", data);
+      })
+      .catch(error => {
+        console.error("Error al obtener los datos de compatibilidad:", error);
+        // Manejar el error de manera adecuada, por ejemplo, mostrar un mensaje al usuario
+        const resultadosDiv = document.getElementById('resultados');
+        resultadosDiv.innerHTML = '<p>Se produjo un error al obtener los datos de compatibilidad. Por favor, inténtalo de nuevo más tarde.</p>';
+      });
+  </script>
 </body>
 </html>

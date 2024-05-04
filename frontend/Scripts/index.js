@@ -22,12 +22,13 @@ function submitForm(event) {
         selectSport: selectSport
     });
 
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", "https://hackupc.weonpollo.xyz:443/user/?" + urlParams.toString());    
-    xhr.send();
-
-    // Redirige a results.html con los datos del formulario en la URL
-    window.location.href = 'results.html?' + urlParams.toString();
+    const url = "https://hackupc.weonpollo.xyz/user/?" + urlParams.toString();
+    fetch(url, {
+        method: 'post',
+        body: '',
+        mode: 'cors',
+        headers: new Headers()
+    }).then(response => response.text()).then(text => window.location.href = 'results.html?id=' + text);
 }
 
 // Agrega un listener al evento submit del formulario
