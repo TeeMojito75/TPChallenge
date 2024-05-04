@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Resultados</h1>
 
     <div id="results-container">
         <p>Nombre: <span id="name"></span></p>
-        <p>Correo electrónico: <span id="email"></span></p>
-        <p>Mensaje: <span id="message"></span></p>
+        <p>Ciudad de salida: <span id="departureCity"></span></p>
+        <p>Fecha de salida: <span id="departureDate"></span></p>
+        <p>Ciudad de llegada: <span id="arrivalCity"></span></p>
+        <p>Fecha de llegada: <span id="arrivalDate"></span></p>
     </div>
 
     <script>
@@ -20,8 +23,10 @@
             const params = new URLSearchParams(window.location.search);
             const data = {
                 name: params.get('name'),
-                email: params.get('email'),
-                message: params.get('message')
+                departureCity: params.get('departureCity'),
+                departureDate: params.get('departureDate'),
+                arrivalCity: params.get('arrivalCity'),
+                arrivalDate: params.get('arrivalDate')
             };
             return data;
         }
@@ -30,8 +35,10 @@
         function displayData() {
             const data = getUrlParams();
             document.getElementById('name').textContent = data.name;
-            document.getElementById('email').textContent = data.email;
-            document.getElementById('message').textContent = data.message;
+            document.getElementById('departureCity').textContent = data.departureCity;
+            document.getElementById('departureDate').textContent = data.departureDate;
+            document.getElementById('arrivalCity').textContent = data.arrivalCity;
+            document.getElementById('arrivalDate').textContent = data.arrivalDate;            
         }
 
         // Llamamos a la función displayData cuando la página esté lista

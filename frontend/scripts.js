@@ -6,14 +6,18 @@ function submitForm(event) {
 
     // Obtiene los valores de los campos del formulario
     const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
+    const departureCity = document.getElementById('departureCity').value;
+    const departureDate = document.getElementById('departureDate').value;
+    const arrivalCity = document.getElementById('arrivalCity').value;
+    const arrivalDate = document.getElementById('arrivalDate').value;
 
     // Crea una URL con los datos del formulario
     const urlParams = new URLSearchParams({
         name: name,
-        email: email,
-        message: message
+        departureCity: departureCity,
+        departureDate: departureDate,
+        arrivalCity: arrivalCity,
+        arrivalDate: arrivalDate
     });
 
     // Redirige a results.html con los datos del formulario en la URL
