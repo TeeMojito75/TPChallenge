@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados</title>
+</head>
+<body>
+    <h1>Resultados</h1>
+
+    <div id="results-container">
+        <p>Nombre: <span id="name"></span></p>
+        <p>Correo electrónico: <span id="email"></span></p>
+        <p>Mensaje: <span id="message"></span></p>
+    </div>
+
+    <script>
+        // Función para obtener los parámetros de la URL
+        function getUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            const data = {
+                name: params.get('name'),
+                email: params.get('email'),
+                message: params.get('message')
+            };
+            return data;
+        }
+
+        // Función para mostrar los datos en la página
+        function displayData() {
+            const data = getUrlParams();
+            document.getElementById('name').textContent = data.name;
+            document.getElementById('email').textContent = data.email;
+            document.getElementById('message').textContent = data.message;
+        }
+
+        // Llamamos a la función displayData cuando la página esté lista
+        document.addEventListener('DOMContentLoaded', displayData);
+    </script>
+</body>
+</html>
