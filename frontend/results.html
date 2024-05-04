@@ -10,11 +10,12 @@
     <h1>Resultados</h1>
 
     <div id="results-container">
-        <p>Nombre: <span id="name"></span></p>
-        <p>Ciudad de salida: <span id="departureCity"></span></p>
-        <p>Fecha de salida: <span id="departureDate"></span></p>
-        <p>Ciudad de llegada: <span id="arrivalCity"></span></p>
-        <p>Fecha de llegada: <span id="arrivalDate"></span></p>
+        <p>Name: <span id="name"></span></p>
+        <p>Departure City: <span id="departureCity"></span></p>
+        <p>departure Date: <span id="departureDate"></span></p>
+        <p>Arrival City: <span id="arrivalCity"></span></p>
+        <p>Arrival Date: <span id="arrivalDate"></span></p>
+        <p>Selected Sport: <span id="selectSport"></span></p>
     </div>
 
     <script>
@@ -26,7 +27,8 @@
                 departureCity: params.get('departureCity'),
                 departureDate: params.get('departureDate'),
                 arrivalCity: params.get('arrivalCity'),
-                arrivalDate: params.get('arrivalDate')
+                arrivalDate: params.get('arrivalDate'),
+                selectSport: params.get('selectSport')
             };
             return data;
         }
@@ -39,6 +41,7 @@
             document.getElementById('departureDate').textContent = data.departureDate;
             document.getElementById('arrivalCity').textContent = data.arrivalCity;
             document.getElementById('arrivalDate').textContent = data.arrivalDate;            
+            document.getElementById('selectSport').textContent = data.selectSport;            
         }
 
         // Llamamos a la función displayData cuando la página esté lista
