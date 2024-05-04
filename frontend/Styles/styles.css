@@ -94,3 +94,48 @@ h1 {
     margin-right: 10px; /* Añade un espacio entre las etiquetas y los campos de entrada */
 }
 
+#resultados {
+    max-width: 800px; /* Ancho máximo del contenedor de resultados */
+    margin: 0 auto; /* Centrar el contenedor horizontalmente */
+    padding: 20px; /* Espacio interno alrededor de los resultados */
+    background-color: #f9f9f9; /* Color de fondo de los resultados */
+    border-radius: 10px; /* Bordes redondeados para los resultados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para resaltar los resultados */
+}
+
+#resultados h2 {
+    text-align: center; /* Centrar el texto de las fechas */
+}
+
+#resultados ul {
+    list-style-type: none; /* Quitar los estilos de lista predeterminados */
+    padding: 0; /* Eliminar el espacio interno de la lista */
+}
+
+#resultados li {
+    margin-bottom: 10px; /* Espacio entre cada evento */
+    padding: 10px; /* Espacio interno dentro de cada evento */
+    background-color: #ffffff; /* Color de fondo de cada evento */
+    border-radius: 5px; /* Bordes redondeados para cada evento */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para resaltar cada evento */
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    display: none; /* Inicialmente oculta */
+    position: fixed; /* Posición fija */
+    top: 50%; /* Centrado verticalmente */
+    left: 50%; /* Centrado horizontalmente */
+    margin-top: -60px; /* Mitad del alto */
+    margin-left: -60px; /* Mitad del ancho */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

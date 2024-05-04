@@ -8,12 +8,18 @@
 </head>
 <body>
   <div id="resultados">
+    <h1>Results</h1>
+    <div id="loader" class="loader"></div>
     <!-- Aquí se mostrarán los resultados -->
   </div>
 
   <script>
+   // Inicializar el loader
+   const loader = document.getElementById('loader');
+   loader.style.display = 'block'
    // Función para mostrar los resultados en la página
    function mostrarResultados(data) {
+       
         // Obtener el elemento div donde se mostrarán los resultados
         const resultadosDiv = document.getElementById('resultados');
       
@@ -49,6 +55,7 @@
           resultadosDiv.appendChild(sinEventosParrafo);
         }
       });
+    
     }
     
     // Obtener el ID del usuario de la URL
