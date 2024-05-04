@@ -37,7 +37,7 @@
         resultadosDiv.appendChild(fechaHeading);
         
         // Mostrar eventos
-        if (eventos.length > 0) {
+        if (eventos.length > 0 && personas.length > 0) {
             // Mostrar personas
             const personasParrafo = document.createElement('p');
             personasParrafo.textContent = 'Personas: ' + personas.join(', ');
