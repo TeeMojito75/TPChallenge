@@ -19,15 +19,14 @@
    loader.style.display = 'block'
    // Función para mostrar los resultados en la página
    function mostrarResultados(data) {
-       
-        // Obtener el elemento div donde se mostrarán los resultados
-        const resultadosDiv = document.getElementById('resultados');
-      
-        // Limpiar el contenido previo en caso de que haya
-        resultadosDiv.innerHTML = '';
-      
-        // Recorrer los datos y agregarlos al elemento div
-        Object.keys(data).forEach(function(fecha) {
+    // Obtener el elemento div donde se mostrarán los resultados
+    const resultadosDiv = document.getElementById('resultados');
+  
+    // Limpiar el contenido previo en caso de que haya
+    resultadosDiv.innerHTML = '';
+  
+    // Recorrer los datos y agregarlos al elemento div
+    Object.keys(data).forEach(function(fecha) {
         const eventos = data[fecha].eventos;
         const personas = data[fecha].personas;
         
@@ -36,7 +35,7 @@
         fechaHeading.textContent = fecha;
         resultadosDiv.appendChild(fechaHeading);
         
-        // Mostrar eventos
+        // Mostrar eventos y personas según su disponibilidad
         if (eventos.length > 0 && personas.length > 0) {
             // Mostrar personas
             const personasParrafo = document.createElement('p');
@@ -44,19 +43,36 @@
             resultadosDiv.appendChild(personasParrafo);
             const eventosLista = document.createElement('ul');
             eventos.forEach(function(evento) {
-            const itemEvento = document.createElement('li');
-            itemEvento.textContent = `${evento.nombre_evento} - ${evento.liga} en ${evento.lugar_evento}`;
-            eventosLista.appendChild(itemEvento);
-          });
-          resultadosDiv.appendChild(eventosLista);
+                const itemEvento = document.createElement('li');
+                itemEvento.textContent = `${evento.nombre_evento} - ${evento.liga} en ${evento.lugar_evento}`;
+                eventosLista.appendChild(itemEvento);
+            });
+            resultadosDiv.appendChild(eventosLista);
+        } else if (eventos.length > 0 && personas.length === 0) {
+            // Mostrar mensaje si hay eventos pero no personas
+            const sinPersonasParrafo = document.createElement('p');
+            sinPersonasParrafo.textContent = "No hay personas para asistir a estos eventos";
+            resultadosDiv.appendChild(sinPersonasParrafo);
+            const eventosLista = document.createElement('ul');
+            eventos.forEach(function(evento) {
+                const itemEvento = document.createElement('li');
+                itemEvento.textContent = `${evento.nombre_evento} - ${evento.liga} en ${evento.lugar_evento}`;
+                eventosLista.appendChild(itemEvento);
+            });
+            resultadosDiv.appendChild(eventosLista);
+        } else if (eventos.length === 0 && personas.length > 0) {
+            // Mostrar personas si no hay eventos
+            const personasParrafo = document.createElement('p');
+            personasParrafo.textContent = 'Personas: ' + personas.join(', ');
+            resultadosDiv.appendChild(personasParrafo);
         } else {
-          const sinEventosParrafo = document.createElement('p');
-          sinEventosParrafo.textContent = 'No hay eventos para esta fecha.';
-          resultadosDiv.appendChild(sinEventosParrafo);
+            // Mostrar mensaje si no hay eventos ni personas
+            const sinEventosNiPersonasParrafo = document.createElement('p');
+            sinEventosNiPersonasParrafo.textContent = 'No hay eventos o personas para esta fecha.';
+            resultadosDiv.appendChild(sinEventosNiPersonasParrafo);
         }
-      });
-    
-    }
+    });
+}
     
     // Obtener el ID del usuario de la URL
     const urlParams = new URLSearchParams(window.location.search);
