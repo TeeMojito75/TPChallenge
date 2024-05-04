@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Introducción de Datos</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 </head>
 <body>
     <!-- Agrega tu logo aquí -->
@@ -23,16 +25,88 @@
                 </tr>
                 <tr>
                     <td><label for="departureCity">Ciudad de salida:</label></td>
-                    <td><input type="text" id="departureCity" name="departureCity" required></td>
+                    <td>
+                        <select id="departureCitySelect" name="departureCity" class="city-select" required>
+                            <option value="">Seleccione una ciudad</option>
+                            <option value="Ámsterdam">Ámsterdam</option>
+                            <option value="Atenas">Atenas</option>
+                            <option value="Barcelona">Barcelona</option>
+                            <option value="Barcelona">Barcelona</option>
+                            <option value="Berlín">Berlín</option>
+                            <option value="Bratislava">Bratislava</option>
+                            <option value="Bruselas">Bruselas</option>
+                            <option value="Budapest">Budapest</option>
+                            <option value="Copenhague">Copenhague</option>
+                            <option value="Dublín">Dublín</option>
+                            <option value="Dubrovnik">Dubrovnik</option>
+                            <option value="Edimburgo">Edimburgo</option>
+                            <option value="Estocolmo">Estocolmo</option>
+                            <option value="Fráncfort">Fráncfort</option>
+                            <option value="Helsinki">Helsinki</option>
+                            <option value="Lisboa">Lisboa</option>
+                            <option value="Londres">Londres</option>
+                            <option value="Lyon">Lyon</option>
+                            <option value="Madrid">Madrid</option>
+                            <option value="Milán">Milán</option>
+                            <option value="Moscú">Moscú</option>
+                            <option value="Múnich">Múnich</option>
+                            <option value="Niza">Niza</option>
+                            <option value="Oslo">Oslo</option>
+                            <option value="París">París</option>
+                            <option value="Praga">Praga</option>
+                            <option value="Roma">Roma</option>
+                            <option value="Varsovia">Varsovia</option>
+                            <option value="Venecia">Venecia</option>
+                            <option value="Viena">Viena</option>
+                            <option value="Zúrich">Zúrich</option>
+                            <!-- Agrega más opciones aquí -->
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <td><label for="departureDate">Fecha de salida:</label></td>
                     <td><input type="date" id="departureDate" name="departureDate" required></td>
                 </tr>
                 <tr>
-                    <td><label for="arrivalCity">Ciudad de llegada:</label></td>
-                    <td><input type="text" id="arrivalCity" name="arrivalCity" required></td>
-                </tr>
+                    <td><label for="arrivalCity">Ciudad de salida:</label></td>
+                    <td>
+                        <select id="arrivalCity" name="departureCity" class="city-select" required>
+                            <option value="">Seleccione una ciudad</option>
+                            <option value="Ámsterdam">Ámsterdam</option>
+                            <option value="Atenas">Atenas</option>
+                            <option value="Barcelona">Barcelona</option>
+                            <option value="Barcelona">Barcelona</option>
+                            <option value="Berlín">Berlín</option>
+                            <option value="Bratislava">Bratislava</option>
+                            <option value="Bruselas">Bruselas</option>
+                            <option value="Budapest">Budapest</option>
+                            <option value="Copenhague">Copenhague</option>
+                            <option value="Dublín">Dublín</option>
+                            <option value="Dubrovnik">Dubrovnik</option>
+                            <option value="Edimburgo">Edimburgo</option>
+                            <option value="Estocolmo">Estocolmo</option>
+                            <option value="Fráncfort">Fráncfort</option>
+                            <option value="Helsinki">Helsinki</option>
+                            <option value="Lisboa">Lisboa</option>
+                            <option value="Londres">Londres</option>
+                            <option value="Lyon">Lyon</option>
+                            <option value="Madrid">Madrid</option>
+                            <option value="Milán">Milán</option>
+                            <option value="Moscú">Moscú</option>
+                            <option value="Múnich">Múnich</option>
+                            <option value="Niza">Niza</option>
+                            <option value="Oslo">Oslo</option>
+                            <option value="París">París</option>
+                            <option value="Praga">Praga</option>
+                            <option value="Roma">Roma</option>
+                            <option value="Varsovia">Varsovia</option>
+                            <option value="Venecia">Venecia</option>
+                            <option value="Viena">Viena</option>
+                            <option value="Zúrich">Zúrich</option>
+                            <!-- Agrega más opciones aquí -->
+                        </select>
+                    </td>
+                </tr>                
                 <tr>
                     <td><label for="arrivalDate">Fecha de llegada:</label></td>
                     <td><input type="date" id="arrivalDate" name="arrivalDate" required></td>
@@ -43,5 +117,10 @@
     </div>
     <!-- Incluye el archivo scripts.js -->
     <script src="scripts.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.city-select').select2();
+        });
+    </script>
 </body>
 </html>
