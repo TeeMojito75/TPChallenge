@@ -21,43 +21,75 @@ h1 {
 }
 
 /* Estilos para el formulario */
-form {
-    display: flex;
-    flex-direction: column;
+#form-container {
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
 }
 
-.form-group {
-    display: flex;
-    align-items: center;
+/* Estilos para las etiquetas de los campos del formulario */
+.form-group label {
+    display: inline-block;
+    width: 150px; /* Ancho fijo para las etiquetas */
+    text-align: right;
+    margin-right: 10px; /* Espacio entre la etiqueta y el campo de entrada */
+}
+
+/* Estilos para los campos de entrada del formulario */
+.form-group input[type="text"],
+.form-group input[type="date"] {
+    width: calc(100% - 160px); /* Ancho fijo para los campos de entrada */
+    padding: 5px;
     margin-bottom: 10px;
 }
 
-label {
-    margin-right: 10px;
-    max-width: 150px;
-}
-
-input[type="text"],
-input[type="date"] {
-    flex: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
+/* Estilos para el botón de enviar */
+#data-form button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #5fa6e0;
+    color: white;
     border: none;
     border-radius: 4px;
-    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-button[type="submit"]:hover {
-    background-color: #0056b3;
+#data-form button:hover {
+    background-color: #45a049;
+}
+
+/* Estilos para el contenedor del logo */
+#logo-container {
+    text-align: center;
+    margin-bottom: -100px;
+}
+
+/* Estilos para la imagen del logo */
+#logo-container img {
+    width: 250px; /* Ajusta el ancho del logo según sea necesario */
+    height: auto; /* Mantiene la proporción original del logo */
+}
+
+
+#form-container table {
+    width: 100%;
+    border-collapse: collapse; /* Colapsa los bordes de la tabla */
+}
+
+/* Estilos para las celdas de la tabla */
+#form-container td {
+    padding: 10px; /* Ajusta el espacio interno de las celdas */
+}
+
+/* Estilos para las etiquetas de los campos del formulario */
+#form-container label {
+    display: inline-block;
+    width: 120px; /* Ancho fijo para las etiquetas */
+    font-weight: bold; /* Negrita para los títulos */
+    white-space: nowrap; /* Evita que el texto se rompa en múltiples líneas */
+    overflow: hidden; /* Oculta cualquier texto que sobresalga del ancho especificado */
+    text-overflow: ellipsis; /* Agrega puntos suspensivos (...) al texto que se trunca */
+    margin-right: 10px; /* Añade un espacio entre las etiquetas y los campos de entrada */
 }
