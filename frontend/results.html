@@ -39,7 +39,7 @@
         if (eventos.length > 0 && personas.length > 0) {
             // Mostrar personas
             const personasParrafo = document.createElement('p');
-            personasParrafo.textContent = 'Personas: ' + personas.join(', ');
+            personasParrafo.textContent = 'Personas en tu ciudad con las que ir: ' + personas.join(', ');
             resultadosDiv.appendChild(personasParrafo);
             const eventosLista = document.createElement('ul');
             eventos.forEach(function(evento) {
@@ -51,7 +51,7 @@
         } else if (eventos.length > 0 && personas.length === 0) {
             // Mostrar mensaje si hay eventos pero no personas
             const sinPersonasParrafo = document.createElement('p');
-            sinPersonasParrafo.textContent = "No hay personas para asistir a estos eventos";
+            sinPersonasParrafo.textContent = "No hay personas con las que asistir a estos eventos";
             resultadosDiv.appendChild(sinPersonasParrafo);
             const eventosLista = document.createElement('ul');
             eventos.forEach(function(evento) {
@@ -63,12 +63,12 @@
         } else if (eventos.length === 0 && personas.length > 0) {
             // Mostrar personas si no hay eventos
             const personasParrafo = document.createElement('p');
-            personasParrafo.textContent = 'Personas: ' + personas.join(', ');
+            personasParrafo.textContent = 'Personas en tu ciudad: ' + personas.join(', ');
             resultadosDiv.appendChild(personasParrafo);
         } else {
             // Mostrar mensaje si no hay eventos ni personas
             const sinEventosNiPersonasParrafo = document.createElement('p');
-            sinEventosNiPersonasParrafo.textContent = 'No hay eventos o personas para esta fecha.';
+            sinEventosNiPersonasParrafo.textContent = 'No hay ningun evento disponible';
             resultadosDiv.appendChild(sinEventosNiPersonasParrafo);
         }
     });
